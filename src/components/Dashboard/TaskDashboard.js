@@ -34,13 +34,13 @@ const TaskDashboard = () => {
   const { user } = useContext(AuthContext)
   const [tasks, setTasks] = useState([])
   const [showTaskForm, setShowTaskForm] = useState(false)
-  console.log(user, "at task")
+
   useEffect(() => {
-    const fetchTasks = async () => {
-      const data = await getTasks()
-      setTasks(data)
-    }
-    fetchTasks()
+    // const fetchTasks = async () => {
+    //   const data = await getTasks()
+    //   setTasks(data)
+    // }
+    // fetchTasks()
   }, [])
 
   const handleCreateTaskClick = () => {
@@ -55,9 +55,9 @@ const TaskDashboard = () => {
         {showTaskForm ? "Close Task Form" : "Create Task"}
       </Button>
 
-      {showTaskForm && <TaskForm userRole={user.role} />}
+      {showTaskForm && <TaskForm userRole={JSON.stringify(user).role} />}
 
-      <TaskList tasks={tasks} userRole={user.role} />
+      <TaskList tasks={tasks} userRole={JSON.stringify(user).role} />
     </DashboardWrapper>
   )
 }

@@ -104,7 +104,7 @@ const TaskForm = ({ userRole }) => {
         setLoading(false)
       }
     }
-    fetchPermissions()
+    // fetchPermissions()
   }, [])
 
   const handleChange = (e) => {
@@ -128,10 +128,6 @@ const TaskForm = ({ userRole }) => {
     }
   }
 
-  if (loading) {
-    return <p>Loading form...</p>
-  }
-
   if (error) {
     return <p>{error}</p>
   }
@@ -139,62 +135,48 @@ const TaskForm = ({ userRole }) => {
   return (
     <FormWrapper>
       <Form onSubmit={handleSubmit}>
-        {fieldPermissions.title && (
-          <Input
-            type="text"
-            name="title"
-            placeholder="Title"
-            value={task.title}
-            onChange={handleChange}
-            disabled={!fieldPermissions.title.editable}
-            required={fieldPermissions.title.editable}
-          />
-        )}
-        {fieldPermissions.description && (
-          <TextArea
-            name="description"
-            placeholder="Description"
-            value={task.description}
-            onChange={handleChange}
-            disabled={!fieldPermissions.description.editable}
-            required={fieldPermissions.description.editable}
-          />
-        )}
-        {fieldPermissions.status && (
-          <Select
-            name="status"
-            value={task.status}
-            onChange={handleChange}
-            disabled={!fieldPermissions.status.editable}
-            required={fieldPermissions.status.editable}
-          >
-            <option value="">Select Status</option>
-            <option value="To Do">To Do</option>
-            <option value="In Progress">In Progress</option>
-            <option value="Done">Done</option>
-          </Select>
-        )}
-        {fieldPermissions.dueDate && (
-          <Input
-            type="date"
-            name="dueDate"
-            value={task.dueDate}
-            onChange={handleChange}
-            disabled={!fieldPermissions.dueDate.editable}
-            required={fieldPermissions.dueDate.editable}
-          />
-        )}
-        {fieldPermissions.assignedUser && (
-          <Input
-            type="text"
-            name="assignedUser"
-            placeholder="Assigned User"
-            value={task.assignedUser}
-            onChange={handleChange}
-            disabled={!fieldPermissions.assignedUser.editable}
-            required={fieldPermissions.assignedUser.editable}
-          />
-        )}
+        {/* {fieldPermissions.title && ( */}
+        <Input
+          type="text"
+          name="title"
+          placeholder="Title"
+          value={task.title}
+          onChange={handleChange}
+        />
+        {/* )} */}
+        {/* {fieldPermissions.description && ( */}
+        <TextArea
+          name="description"
+          placeholder="Description"
+          value={task.description}
+          onChange={handleChange}
+        />
+        {/* )} */}
+        {/* {fieldPermissions.status && ( */}
+        <Select name="status" value={task.status} onChange={handleChange}>
+          <option value="">Select Status</option>
+          <option value="To Do">To Do</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Done">Done</option>
+        </Select>
+        {/* )} */}
+        {/* {fieldPermissions.dueDate && ( */}
+        <Input
+          type="date"
+          name="dueDate"
+          value={task.dueDate}
+          onChange={handleChange}
+        />
+        {/* )} */}
+        {/* {fieldPermissions.assignedUser && ( */}
+        <Input
+          type="text"
+          name="assignedUser"
+          placeholder="Assigned User"
+          value={task.assignedUser}
+          onChange={handleChange}
+        />
+        {/* )} */}
         <Button type="submit">Create Task</Button>
       </Form>
     </FormWrapper>

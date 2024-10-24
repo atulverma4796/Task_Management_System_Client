@@ -82,23 +82,25 @@ export const createTask = async (task) => {
 }
 
 export const getFieldPermissions = async (role) => {
-  const response = await fetch(`${API_URL}/permissions/${role}`)
-  if (!response.ok) {
-    throw new Error("Failed to fetch permissions")
-  }
-  return response.json()
+  // const response = await fetch(`${API_URL}/permissions/${role}`)
+  // if (!response.ok) {
+  //   throw new Error("Failed to fetch permissions")
+  // }
+  // return response.json()
+  return []
 }
 
 export const updateFieldPermissions = async (permissions) => {
-  const response = await fetch(`/api/permissions/update`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(permissions),
-  })
-  if (!response.ok) {
-    throw new Error("Failed to update permissions")
-  }
-  return response.json()
+  // const response = await fetch(`/api/permissions/update`, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(permissions),
+  // })
+  // if (!response.ok) {
+  //   throw new Error("Failed to update permissions")
+  // }
+  // return response.json()
+  return []
 }
